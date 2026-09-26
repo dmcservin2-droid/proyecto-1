@@ -3,8 +3,6 @@ on:
   push:
     branches: [ main ]
   workflow_dispatch:
-permissions:
-  contents: write
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,19 +23,8 @@ jobs:
           gradle-version: '8.10.2'
       - name: Build APK
         run: gradle :app:assembleRelease
-      - name: Stage APK temporarily
-        run: |
-          mkdir -p dist
-          cp app/build/outputs/apk/release/app-release.apk dist/NotasPlus-v1.0.apk
       - uses: actions/upload-artifact@v4
         with:
           name: NotasPlus-APK
-          path: dist/NotasPlus-v1.0.apk
+          path: app/build/outputs/apk/release/app-release.apk
           retention-days: 7
-      - name: Publish APK temporarily to repository
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add dist/NotasPlus-v1.0.apk
-          git commit -m "chore: stage Notas+ APK for private storage seed" || exit 0
-          git push
