@@ -1,7 +1,7 @@
-name: Build NotasPlus APK
+name: Build Tinta APK
 on:
   push:
-    branches: [ main ]
+    branches: [ tinta-app ]
   workflow_dispatch:
 jobs:
   build:
@@ -25,6 +25,6 @@ jobs:
         run: gradle :app:assembleRelease
       - uses: actions/upload-artifact@v4
         with:
-          name: NotasPlus-APK
+          name: Tinta-APK
           path: app/build/outputs/apk/release/app-release.apk
           retention-days: 7
