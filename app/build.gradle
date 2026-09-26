@@ -1,11 +1,11 @@
 plugins { id 'com.android.application' }
 
 android {
-    namespace 'com.notasplus.app'
+    namespace 'com.lunote.app'
     compileSdk 35
 
     defaultConfig {
-        applicationId 'com.notasplus.app'
+        applicationId 'com.lunote.app'
         minSdk 23
         targetSdk 35
         versionCode 1
