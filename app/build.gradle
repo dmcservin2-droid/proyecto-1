@@ -1,11 +1,11 @@
 plugins { id 'com.android.application' }
 
 android {
-    namespace 'com.tinta.app'
+    namespace 'com.trazo.app'
     compileSdk 35
 
     defaultConfig {
-        applicationId 'com.tinta.app'
+        applicationId 'com.trazo.app'
         minSdk 23
         targetSdk 35
         versionCode 1
